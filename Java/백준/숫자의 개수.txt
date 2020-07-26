@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <math.h>
+
+int length(int sum)
+{
+	int i=1;
+	while(1)
+{
+	if((pow(10, i-1) <= sum) && (pow(10, i) > sum))
+	{
+		return i;
+	}
+	i++;
+}
+}
+
+int main(void)
+{
+	int a, n, sum=1;
+	int e[10]={ 0, };
+	
+	for(int j=0; j<3; j++)
+	{
+	scanf("%d", &a); 
+	sum=sum*a;  
+	}
+	n=length(sum);
+
+   for(int j=0; j<n; j++)
+	   	{
+	   		e[sum%10]++; //뒤 자리 수 개수부터 저장 
+	   		sum/=10; //뒤 자리 수 개수를 저장했으니까 맨 마지막 수 삭제 
+		}
+
+for(int j=0; j<10; j++)
+ {
+ 	printf("%d\n", e[j]);
+ }
+
+    return 0;
+}

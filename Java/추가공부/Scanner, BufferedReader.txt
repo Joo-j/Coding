@@ -1,0 +1,48 @@
+1. Scanner
+1)  선언 및 정의
+
+import java.util.Scanner;
+
+Scanner sc = new Scanner(System.in);
+
+2)  관련 메소드
+sc.nextLine();
+sc.hasNext();  현재 위치에서 다음에 데이터가 있으면 true 없으면 false 
+hasNextInt() 메소드는 nextInt() 메소드를 이용해서 인풋이 만약에 int 값이면 true 를 리턴 합니다
+sc.nextInt();
+sc.next();
+
+*구분자 메소드
+sc.useDelimiter(str delim);  //delim에 구분자 설정
+sc.delimiter();   // 설정한 구분자
+sc.next(); 와 sc.hasNext(); 로 구분.
+
+* sc.next()와 sc.nextLine()의 차이
+sc.next()는 스페이스바, 개행 모두 무시하고 String만 가져온다.
+sc.nextLine()은 개행도 하나의 String으로 취급한다.
+
+2. BufferedReader
+1) 선언 및 정의
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+2) 메소드
+br.readline();
+
+* InputStreamReader
+BufferedReader가 나오기 전에 있던 입력 처리 클래스로, 한 글자씩 입력 받는다.
+
+String line[];
+line = in.readLine().split(" ");
+x = Integer.parseInt(line[0]);
+
+3. 차이점
+1) 버퍼의 사이즈가 다르다. (sc : 1024 chars, br : 8192 chars)
+2) br은 문자열만 인식가능하기 때문에 integer나 다른 변수형으로 변환이 필요하다.
+3) br은 IOException을 처리해줘야 한다.(sc 할 필요X)
+4) br 속도 훨씬 빠르다.
+[출처] Scanner와 BufferedReader 차이|작성자 뉴먼
+

@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	char a[101];
+	
+	for(int i=0; i<100; i++)
+{
+	gets(a);
+	puts(a);
+}
+
+	return 0;
+}
+/
+/
+/
+/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+	char a[101];
+
+while(gets(a)!=NULL)	
+{
+	puts(a);
+}
+
+	return 0;
+}

@@ -1,0 +1,31 @@
+중첩된 이미지들을 계속 바꿔서 보여줄 수 있는 레이아웃
+drawble폴더에 사진이나 그림을 추가해서 사용할 수 있음
+팔레트에 있는 images를 클릭해서 끌어다 사용
+
+public class~
+
+ImageView imageView;
+ImageView imageView2;
+int index=0;
+
+protected void onCreate(){~
+
+imageView = (ImageView) findViewById(R.id.imageView);
+imageView2 = (ImageView) findViewById(R.id.imageView2);
+}
+
+public void onButton1Clicked(View v){
+index+=1;
+if(index>1){
+index=0;
+}
+
+if(index==0){
+imageView.setVisibility(View.VISIBLE);
+imageView.setVisibility(View.INVISIBLE);
+}
+else if(index==1){
+imageView.setVisibility(View.INVISIBLE);
+imageView.setVisibility(View.VISIBLE);
+}
+}

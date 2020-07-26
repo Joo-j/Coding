@@ -1,0 +1,59 @@
+/** int -> String */
+String str = Integer.toString(i);
+String str = "" + i;
+ 
+/** String -> int  */
+int i = Integer.parseInt(str);
+int i = Integer.valueOf(str).intValue();
+ 
+/** String -> float */
+float f = Float.valueOf(str).floatValue();
+ 
+/** float -> String */
+String str = Float.toString(f);
+ 
+/** String -> long */
+long l = Long.valueOf(str).longValue();
+long l = Long.parseLong(str);
+ 
+/** long -> String */
+String str = Long.toString(l);
+ 
+/** String -> double */
+double d = Double.valueOf(str).doubleValue();
+ 
+/** double -> String */
+String str = Double.toString(d);
+ 
+/** Object -> int */
+int i = (int) obj;
+ 
+/** 객체 -> boolean */
+boolean b = (i != null);
+ 
+/** int -> boolean */
+boolean b = (i > 1);
+ 
+/** boolean -> int */
+int i = (b)? 1:0;
+ 
+/** decimal -> binary */
+String binstr = Integer.toBinaryString(i);
+ 
+/** decimal -> hexadecimal */
+String hexstr = Integer.toString(i, 16);
+String hexstr = Integer.toHexString(i);
+Integer.toHexString( 0x10000 | i).substring(1).toUpperCase());
+ 
+/** hexadecimal -> int */
+int i = Integer.valueOf("B8DA3", 16).intValue();
+int i = Integer.parseInt("B8DA3", 16);
+ 
+/** char(ascii code) -> String */
+String char = new Character((char)i).toString();
+ 
+/** 객체 -> Object(객체) */
+Object obj1 = (Object) obj2;
+ 
+/** list -> boolean */
+boolean b = list.isEmpty;

@@ -1,0 +1,7 @@
+text: 텍스트 뷰에 보이는 문자열 설정
+textColor: 문자열의 색상을 설정
+textSize: 문자열의 크기를 설정, dp나 sp, px
+textStyle: 문자열의 스타일 속성을 설정
+typeFacce: 문자열의 폰트를 설정
+maxLines="1": 텍스트뷰에서 표시하는 문자열이 한 줄로 표시되도록 설정
+lineSpacingExtra: 각 줄의 문자열의 거리를 설정

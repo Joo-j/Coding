@@ -1,0 +1,61 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+        int a[]=new int[500000];
+        
+		int n=sc.nextInt();
+		int sum=0;
+		for(int i=0; i<n; i++){
+			a[i]=sc.nextInt();
+			sum+=a[i];
+		}
+         System.out.println(sum/n);
+
+         for(int i=0; i<n-1; i++){
+        	 for(int j=i+1; j<n; i++){
+              if(a[i]>a[j]) {
+            	  int temp=a[i];
+            	  a[i]=a[j];
+            	  a[j]=temp;
+              }
+      		}         	 
+ 		}
+         System.out.println(a[n/2]);
+         
+         int d=a[n-1]-a[0];
+         
+         
+       
+         int max=0;
+         int max2=0;
+         int index=0;
+         int index2=0;
+         
+         for(int i=0; i<n-1; i++){
+        	  int count=0;
+        	 for(int j=i+1; j<n; i++){
+        	 if(a[i]==a[j])  count++;        		
+         }
+        	 if(max<count) {
+        		 max=count;
+        		 index=i;
+        	 }
+        	 
+        	 if(max==count) {
+        		 index2=i;
+        	 }
+         }
+         
+         int c=(index<index2)?index:index2;
+         
+         
+         
+         System.out.println(c);
+         System.out.println(d);
+
+ 		
+	}
+}

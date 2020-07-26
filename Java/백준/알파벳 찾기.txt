@@ -1,0 +1,76 @@
+package j;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+
+ public static void main(String[] args){	
+
+	 Scanner sc = new Scanner(System.in);
+
+	 String a = sc.nextLine();
+	 int ap[] = new int[26];
+	 Arrays.fill(ap, -1);
+	 
+	 for(int i=0; i<a.length(); i++) {
+		 char tmp = a.charAt(i);
+		 int index = a.indexOf(tmp);
+		 ap[tmp-97] = index;
+	 }
+	 
+	 for(int i=0; i<ap.length; i++) {
+		 System.out.print((i!=ap.length)?ap[i]+" ":ap[i]);
+	 }
+	 
+	 sc.close();
+	 
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+
+
+public class Main {
+
+ public static void main(String[] args) throws IOException {	
+
+	 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	 String alphabet[] = {"asd", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};	
+	 String a[] = new String[100];
+	 int count[] = new int[27];
+	 Array.getInt(count, -1);
+     int i=1;
+     int c=1;
+     
+	 while((a[i]=br.readLine())!=null){
+		for(int j=1; j<27; j++) {
+			if(alphabet[j]==a[i]&&count[j]==-1) {
+				count[j]=c;
+				c++;
+				break;
+			}
+		}
+	 i++;
+	 }
+	 
+	 for(int j=1; j<27; j++){
+			 System.out.print(count[j]+" ");
+}
+}
+}

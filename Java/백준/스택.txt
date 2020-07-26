@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define max 10000
+
+int main()
+{
+	int n, c;
+    int a[max];
+    int top=-1;
+	char s[13];
+	
+	scanf("%d", &n);
+    
+	while(n--)
+	{
+		scanf("%s", s);
+		
+		if(!strcmp("push", s))
+		{   
+		scanf("%d", &c);
+           a[++top]=c;
+		}
+		else if(!strcmp("pop", s))
+		{
+            if(top==-1) printf("-1\n");
+			else 
+			{
+			printf("%d\n", a[top]);
+			top--;
+		}
+		}
+			else if(!strcmp("size", s))
+		{
+			printf("%d\n", top+1);
+		}
+		else if(!strcmp("empty", s))
+		{
+			if(top==-1) printf("1\n");
+			else printf("0\n");
+		}
+		else if(!strcmp("top", s))
+		{
+			if(top==-1) printf("-1\n");
+			else printf("%d\n", a[top]);
+		}
+	}
+	return 0;
+}

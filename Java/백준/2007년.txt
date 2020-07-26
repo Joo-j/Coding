@@ -1,0 +1,158 @@
+
+#include <stdio.h>
+
+int main()
+{
+	char date[]={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	int x, y, days=0;
+	
+	scanf("%d %d", &x, &y);
+	
+	for(int i=0; i<x-1; i++) //총 일수 
+	{
+		days+=date[i];
+	}
+	
+	days+=y;
+	
+	switch(days%7) //시작이 일요일 이니까 총일수%7 해서 요일 구별 
+	{
+		case 0: 
+		printf("SUN");
+		break;
+		case 1: 
+		printf("MON");
+		break;
+		case 2: 
+		printf("TUE");
+		break;
+		case 3: 
+		printf("WED");
+		break;
+		case 4: 
+		printf("THU");
+		break;
+		case 5: 
+		printf("FRI");
+		break;
+		case 6: 
+		printf("SAT");
+		break;
+	}
+}
+
+
+///////////////////////////////////////
+#include <stdio.h>
+
+int main(void)
+{
+int q=31;
+int w=29;
+int e=30;
+
+int feb=q;
+int mar=feb+w;
+int apr=mar+q;
+int may=apr+e;
+int jun=may+q;
+int jul=jun+e;
+int aug=jul+q;
+int sep=aug+q;
+int oct=sep+e;
+int nov=oct+q;
+int dec=nov+e;
+
+int month, day;
+int date;
+scanf("%d %d", &month, &day);
+	
+	if(month==1)
+	{
+	date=day;	
+	}
+	else if(month=2)
+	{
+		date=feb+day;
+	}
+	else if(month=3)
+	{
+		date=mar+day;
+	}
+	else if(month=4)
+	{
+		date=apr+day;
+	}
+	else if(month=5)
+	{
+		date=may+day;
+	}
+	else if(month=6)
+	{
+		date=jun+day;
+	}
+	else if(month=7)
+	{
+		date=jul+day;
+	}
+	else if(month=8)
+	{
+		date=aug+day;
+	}
+	else if(month=9)
+	{
+		date=sep+day;
+	}
+	else if(month=10)
+	{
+		date=oct+day;
+	}
+	else if(month=11)
+	{
+		date=nov+day;
+	}
+	else if(month=12)
+	{
+		date=dec+day;
+	}
+ 
+for(int i=0; i<53; i++)
+{			
+			if(date==1+7*i)
+		{
+			printf("MON");
+			break;
+		}
+		else if(date==2+7*i)
+		{
+			printf("TUE");
+		    break;
+		}
+		else if(date=3+7*i)
+		{
+	       printf("WED");
+	       break;
+	}
+		else if(date=4+7*i)
+		{
+           printf("THU");
+	       break;
+	}
+		else if(date=5+7*i)
+		{
+	       printf("FRI");
+	       break;
+	}
+		else if(date=6+7*i)
+		{
+	       printf("SAT");
+	       break;
+	}
+		else if(date=7+7*i)
+		{
+           printf("SUN");
+	       break;
+	}
+	}
+ } 
+

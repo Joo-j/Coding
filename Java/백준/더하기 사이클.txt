@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+    int n, t=-1, sum, count=0; //처음에 t=0이라고 해서 n=0일때 while문에 못 들어갔을 것
+    scanf("%d", &n);
+    while(t!=n){
+        if(count==0) t=n; //26
+        sum = (t/10)+(t%10); //와 이거 감탄, 맞네; 2 + 6 = 8, 6 + 8 = 14
+        t = (t%10)*10+(sum%10); // 6 * 10 + 8 = 68 , 8 * 10 + 4 =84
+        count++;
+    }
+    printf("%d",count);
+    return 0;
+}

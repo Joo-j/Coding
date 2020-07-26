@@ -1,0 +1,10 @@
+back버튼
+
+public boolean onKeyDown(int keyCode, kevEvent event){
+if(KeyCode == KeyEvent.KEYCODE_BACK){
+Toast.makeText(this, "시스템 BACK 버튼 눌림", Tost.LENGTH_LONG).show();
+return true;
+}
+return false;
+}
+

@@ -1,0 +1,12 @@
+부분 화면안에 있는 인플래이션
+
+FrameLayout container = (FrameLayout) findViewById(R.id.container);
+
+Button button = (Button) findViewById(R.id.button);
+button.setOnClickListner(new View.OnClickListner(){
+@overide
+public void onClick(View v){
+LayoutInflater inflater = (LayoutInflater) getSystemService(Context.Layout_INFLATER_SERVICE);
+inflater.inflate(R.layout.sub1, container, ture);
+}
+});

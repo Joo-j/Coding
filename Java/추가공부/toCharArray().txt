@@ -1,0 +1,21 @@
+String을 char[]로 전환하는 함수
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		String word = "Hi, Hello";
+
+		char[] array = word.toCharArray();
+		
+		System.out.println(word+'\n');
+		
+		for(int i=0; i<array.length; i++){
+			System.out.print(array[i]);
+		}
+	}
+}
+[출처] [Java] toCharArray() - String to array|작성자 형준
+

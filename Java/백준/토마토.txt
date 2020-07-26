@@ -1,0 +1,77 @@
+package j;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+
+	static int m, n, s;
+	static int a[][];
+	static boolean visited[][];
+    static int count;
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);		
+		m = sc.nextInt();
+	    n = sc.nextInt();
+	    a = new int[n][m];
+       visited = new boolean[n][m];
+	   Queue<Tomato> q = new LinkedList<Tomato>(); 
+       
+       
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<m; j++) {
+				a[i][j]=sc.nextInt();
+				if(a[i][j]!=-1) count++;
+				if(a[i][j]==1) {
+					Tomato t = new Tomato(i, j, 0);
+					q.offer(t);
+				}
+			}
+		}
+		
+		int dx[] = {1, -1, 0, 0};
+		int dy[] = {0, 0, 1, -1};
+		int result = 0;
+		
+		while(!q.isEmpty()) {
+			Tomato currentT = q.poll(); 
+			count--;
+			visited[currentT.x][currentT.y] = true;
+			
+			for(int i=0; i<4; i++) {
+				int nx = currentT.x + dx[i];
+				int ny = currentT.y + dy[i];
+				
+				if(nx<0||ny<0||nx>=n||ny>=m) continue;
+				if(a[nx][ny]==-1) continue;
+				if(visited[nx][ny]==true||a[nx][ny]==1) continue; 
+				else {
+					int nowC = currentT.count+1;
+					visited[nx][ny] = true;
+					Tomato nowT = new Tomato(nx, ny, nowC);
+					q.add(nowT);
+				}
+			}
+			result = currentT.count;
+		}
+		
+		if(count!=0) System.out.println("-1");
+		else System.out.println(result);
+   }
+	
+	
+	public static class Tomato{
+		int x;
+		int y;
+		int count;
+		
+		Tomato(int x, int y, int count){
+			this.x = x;
+			this.y = y;
+			this.count = count;
+		}
+	}
+}

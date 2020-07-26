@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main(void)
+{
+	
+	int a[10000];
+	int i, j=0;
+	int n, m;
+	scanf("%d %d", &n, &m);
+	
+	for(i=n; i<=m; i++)
+	{
+		if(i==1)
+		{
+			continue;
+		}
+		else if(i==2||i==3||i==5)
+		{
+			a[j]=i;
+			j++;
+		}
+		else if(i%2!=0&&i%3!=0&&i%5!=0)
+		{
+			a[j]=i;
+			j++;
+		}
+		else
+		{
+	        continue;
+		}
+	}
+	
+	for(int q=0; q<j; q++)
+	{
+		printf("%d\n", a[q]);
+	}
+	
+	return 0;
+}

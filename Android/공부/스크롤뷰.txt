@@ -1,0 +1,23 @@
+뷰들이 화면을 넘어가는 경우 스크롤뷰로 감싸주기만 하면 스크롤이 생겨서 모두 화면에 할당할 수 있다.
+
+리니어 레이아웃의 vertical방향으로 계속 뷰를 추가해서 화면을 넘어가는 경우
+
+
+
+<LinearLayout
+<ScrollView
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertiacl">
+
+<TextView
+android:id=""@+id/textView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textSize="30dp"
+android:text="안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n안녕하세요.\n"
+</LinearLayout>
+</scrollView>
+</LinearLayout>
+

@@ -1,0 +1,3 @@
+응답코드를 통해서 새로운 액티비티를 띄우는 함수
+
+protected void onActivityResult(int requestCode, int resultCode, Intent Data)

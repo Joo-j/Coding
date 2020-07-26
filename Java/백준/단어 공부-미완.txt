@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main(){
+	
+	char a[100000];
+	int b[25];
+	int size;
+	
+	scanf("%s", &a);
+	
+	for(int i=0; i<25; i++)
+	{
+		b[i]=0;
+	}
+	
+	for(int i=0; i<sizeof(a); i++)
+	{
+		if(a[i]==NULL)
+		{
+			 size=i;
+		}
+	}
+
+	for(int i=0; i<size; i++)
+	{
+    for(int j=0; j<25; j++)
+	{
+		if(a[i]-97==j)
+		{
+		b[j]++;
+		}
+		else if(a[i]-65==j)
+	{
+		b[j]++;
+	}
+	}
+	}
+	
+	for(int i=0; i<24; i++)
+	{
+		for(int j=i+1; j<25; j++)
+		{
+			if(a[i]<a[j])
+			{
+				int temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+	
+	
+	if(b[0]==b[1]) printf("?");	
+	else printf("%c", b[0]+81);
+	
+	return 0;
+}s

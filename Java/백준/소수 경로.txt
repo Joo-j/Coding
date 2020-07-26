@@ -1,0 +1,52 @@
+package j;
+
+import java.util.Scanner;
+
+
+public class Main {
+
+	public static void main(String[] args) throws Exception{
+   
+         Scanner sc = new Scanner(System.in);
+		int t= sc.nextInt();
+    	int count;
+    	
+    	for(int i=0; i<t; i++) {
+    		count=0;
+    		int p1 = sc.nextInt();
+    		int p2 = sc.nextInt();
+    		while(true) {
+    			if(biggestP(p1)==p2) {
+    			System.out.println(count);	
+    			}
+    			else {
+    				p1=biggestP(p1);
+    				count++;
+    			}
+    		}    		    		
+    	}	
+}
+	
+	public static int biggestP(int p1) {
+        int a=1000;
+    
+		while(true) {
+			if(isP(p1+a)) {
+        		return p1+a;
+        	}else {
+        		if((p1+a)/a==9) {
+  		    	  a/=10;
+  		      }
+        		a+=a;
+        	}								      
+        }        
+	}
+	
+	public static boolean isP(int p1) {
+		for(int i=2; i<p1; i++) {
+			if(p1%i==0) return false; 
+		}
+		return true;
+	}
+	
+}

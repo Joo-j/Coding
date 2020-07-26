@@ -1,0 +1,14 @@
+public class Main{
+	
+	public static void main(String[] args) {
+	
+		String a="I Love You.";
+		if(a.contains("Love"))
+		{
+			System.out.println("포함되어있습니다");
+		}
+		
+	}
+}
+
+String a의 값에 Love라는 문자가 포함되어 있는지 검사하고 포함되어있으면 참값 반환 없으면 거짓값 반환

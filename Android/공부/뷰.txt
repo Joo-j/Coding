@@ -1,0 +1,5 @@
+ToggleButton:
+CheckBox: 
+RadioButton: 회원가입에서 성별을 고를때와 같이 한 항목을 선택하면 다른 하목이 선택이 해제되는 특성을 가진 버튼, RadioGroup안에서 2개 이상으로 사용
+PlainText: 입력상자, hint항목을 사용해서 활용, inputType항목을 통해서 입력타입을 설정해서 사용
+ImageView: 그림 사진을 사용, mipmap이라는 폴더에 저장, app:srcCompat으로 다양한 내용들을 설정

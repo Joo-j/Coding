@@ -1,0 +1,52 @@
+placeholder : 빈칸에 들어갈 텍스트에 대한 설명
+radio : 성별 등을 고를때 
+<div>
+
+<tr> 행시작
+<td> 열 </td>
+<td> 열 </td>
+</tr> 행끝
+
+<input type : 입력받을때
+<label>
+colspan="3" 
+<div class="container">
+<form method="post" action="./userRegister">
+<a href="#" class="dropdown-toggle"
+aria-haspopup="true"
+<span class="caret">
+<ul>
+<li>
+<nav>
+modal
+
+Ajax: Asynchronous javascript and xml의 약자
+네이버 페이지를 새로고침하면 깜박임이 잠깐 일어난 다음에 페이지가 로딩되죠?
+이게 일반 동기식으로 페이지를 전환하였을때 일어나는 현상입니다.(일반적)
+나는 이렇게 깜빡이는게 싫다
+네이버의 순위 로딩과 같이 페이지의 깜박임 없이 저부분만 변하는거죠 이걸 비동기식적으로 부분 페이지를 업데이트한다고 해요
+이와 같이 필요한 부문에 한에서
+전체 페이지를 다시 적재하지 않고 웹 페이지 일부를 업데이트 할 수 있는 기술을 Ajax라고 합니다.
+즉 Ajax는 서버와 데이터를 비동기적으로 교환하는 기술의 하나에요
+Ajax는 빠르고 동적인 대화형 웹 페이지를 만드는데 유용하게 사용됩니다.
+대표적으로 구글지도를 Ajax의 사용 예로 볼 수 있습니다.
+
+문법
+jquery를 사용하면 쉽게 ajax 사용 가능 (여러 메소드를 제공하기 때문)
+$.get(URL, callback);
+$.post(URL, data, callback);
+$,ajax({
+url:요청이 전송될 주소
+data: ~
+dataType: ~
+method: ~
+등등의 settings
+});
+
+jquery의 get과 post 메서드는 HTTP GET 또는 POST 요청 방법을 사용해 서버로부터 데이터를 요청할 수 있는 메서드임.
+data:requset 요청과 함께 보내지는 데이터
+callback : get 또는 post과 완료된 후에 호출되는 함수
+
+
+이클립스 개발환경을 java와 java ee등등으로 변경할때는 각각의 환경을 설치하고 처음 설정한 저장공간에 따라 변동
+이클립스를 실행할때 저장공간을 선택하라는 박스가 뜨면 jsp 혹은 java 등 자신이 원하는 환경의 저장공간을 선택하면된다.

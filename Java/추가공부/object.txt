@@ -1,0 +1,42 @@
+object(객체) 클래스는 모든 객체의 조상으로 쓰임
+자바에서 사실 모든 클래스는 암시적으로 Object 클래스를 상속 받고 있음.
+그러한 이유에서 Object 클래스는 모든 클래스의 조상이라고 할 수 있는 것
+이러한 클래스가 존재하는 이유는 모든 클래스가 공통으로 포함하고 있어야 하는 기능을 제공하기 위해서이다.
+
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Archer a1= new Archer("궁수1", "상");
+		Archer a2= new Archer("궁수1", "상");
+		
+		System.out.println(a1==a2);
+		//이것은 내부 변수가 같더라도 객체 자체가 다르기 때문에 false값을 출력함
+		System.out.println(a1.equals(a2));
+		//오브젝트 클래스를 이용했기 때문에 변수가 같다면 객체가 다르더라도 true
+	}
+
+}
+
+
+
+
+public class Archer {
+
+	String name;
+	String power;
+	
+	public Archer(String name, String power) {
+		this.name=name;
+		this.power=power;
+	}
+	
+	public boolean equlas(Object obj) { //오브젝트라는 변수를 아처라는 형태로 바꿀 수 있는 이유는 오브젝트 변수가 부모 클래스이기 때문
+		Archer temp = (Archer) obj;
+		if(name==temp.name&&power==temp.power) return true;
+		else return false;
+	}
+}

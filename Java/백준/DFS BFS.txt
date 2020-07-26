@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int N;
+char node[1001][1001];
+char check[1001];
+
+typedef struct que{
+	struct que* next;
+	int count;
+}Q;
+
+Q* top=NULL; //=struct que top=NULL;
+Q* end=NULL; //=struct que end=NULL;
+
+void que_pop();
+
+void DFS(int V) //V=시작점 
+{
+int i;
+for(i=1; i<=N; i++)     
+{
+	if(node[V][i]==1) //시작(현재)정점으로 부터 연결된 정점이면 
+	{
+		if(check[i]==0)  //탐색할 노드가 현재(시작) 노드가 아니면 
+		{
+			printf("%d", i); //정점의 순서 출력 
+			check[i]++; //탐색한 정점은 +1; 
+			DFS(i); //다음 노드를 시작점으로 재귀 ->이렇기 때문에 DFS가 가능한 것임, 다음 정점을 시작으로 탐색을 하지않고 이전 정점에서 다른 연결된 정점이 있는지 검사하면 그것은 BFS 
+		}
+	}
+	}	
+}
+//재귀하면서 탐색한 정점의 수를 순서대로 출력 
+
+void BFS(int V)
+{
+	int i;
+	for(i=1; i<=N; i++)
+	{
+		if(node[V][i]==1)
+		{
+			if(check[i]==1) //탐색할 노드가 DFS에서 탐색한 정점이면, 즉 탐색하지 않은 정점이면  
+			{
+				Q* sto=(Q*)malloc(sizeof(Q)); //크기 할당 
+				sto->next=NULL; 
+				sto->count=i;  //모든 for문이 끝날 때 까지, 시작(현재)정점의 연결된 정점의 탐색이 끝날때까지 반복한 후 저장된 값들을 que로 출력 
+				end->next=sto; 
+				end=sto;
+				check[i]++;
+			}
+		}
+	}
+	que_pop();
+}
+
+void que_pop()
+{
+	Q* D;
+	if(top->next!=NULL) //다음 값이 또 있으면 
+	{
+		printf("%d", top->count); //정점의  순서 출력 
+		D=top;
+		top=top->next; //top에 다음 값 저장 
+		free(D);
+		D=NULL; //초기화 
+		BFS(top->count); //재귀 
+	}
+	else //다음 값이 없으면 
+	{
+	printf("%d", top->count); //출력 
+	free(top);
+	top==NULL;
+	end==NULL;
+	}
+}
+
+int main()
+{
+	int M, V, i, j;
+	scanf("%d %d %d", &N, &M, &V);
+	while(M--)
+	{
+		scanf("%d %d", &i, &j);
+		node[i][j]=1; node[j][i]=1; //간선 표현 
+	}
+	check[V]=1; //시작점에 1 저장 
+	printf("%d", V);
+	DFS(V);
+	printf("\n");
+	check[V]=2; //시작점에 2저장 
+	Q* sto=(Q*)malloc(sizeof(Q));
+	sto->next=NULL, sto->count=V; //정점의 첫 순서 저장, 다음 정점을 위한 선언  
+	top=sto; end=sto; //큐의 첫 구성을 위해 시작과 끝을 같은 값으로 지정  
+	BFS(V);
+	printf("\n");
+	
+	return 0;
+}

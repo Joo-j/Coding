@@ -1,0 +1,131 @@
+인터페이스는 구현될 기능들에 대해 미리 간단하게 설계한다는 목적 측면에서 추상이랑 매우 흡사한 개념
+숙련된 자바 개발자들에게 아주 선호되는 설계 기능
+다중 상속을 구현하게 해주는 고급 기술
+기본적으로 자바에서는 다중상속 불가
+추상클래스에는 추상 메소드 외에 멤버 변수나 일반 메소드를 가질 수 있지만 인터페이스에서는 반드시 설계만 해야하는 것이기 때문에 완전하게 설계에 필요한 메소드만을 사용할 수 있음. 
+추상 클래스보다 추상화의 정도가 높다고 할 수 있다. 미리 구현하지 않고 말그대로 설계만 한다는 소리
+인터페이스는 동시 작업을 할 수 있다는 측면에서 팀프로젝트에 굉장히 유리하고 추상보다 요구되는 설계 기준이 높기 때문에 더 체계적이라는 평을 받고 있다.
+
+
+media player는 cd와 dvd등등 play라는 기능이 공통적이기 때문에 미리 설계, 그렇지만 추상클래스보다 더더욱 가벼움
+
+
+
+
+public interface Dog {
+
+	abstract void crying();
+	public void show() {  //어떠한 기능을 갖게 할 수 없기 때문에 오류
+		System.out.println("hello world"); //
+	}
+}
+
+abstract class Dog {
+
+	abstract void crying();
+	public void show() {  //추상클래스는 가능
+		System.out.println("hello world"); 
+	}
+}
+
+어떠한 코드가 작성되는 것을 절대 금기함
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+
+public class Main implements Dog{
+
+	public static void Main(String[] args) {
+	
+		Main m = new Main();
+		m.crying();
+		m.show();
+		
+	}
+
+	@Override
+	public void crying() {
+		System.out.println("월!월!");
+		
+	}
+
+	@Override
+	public void show() {
+		System.out.println("hello world");
+		
+	}
+}
+
+
+public interface Dog {
+
+	abstract void crying();
+	public void show();
+}
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+public class Main implements Dog, Cat{
+
+	public static void main(String[] args) {
+	
+		Main m = new Main();
+		m.crying();
+		m.show();
+		m.crying2();
+		m.show2();
+		
+	}
+
+	@Override
+	public void crying() {
+		System.out.println("월!월!");
+		
+	}
+
+	@Override
+	public void show() {
+		System.out.println("hello world");
+		
+	}
+
+	@Override
+	public void crying2() {
+		System.out.println("냥!냥!");
+		
+	}
+
+	@Override
+	public void show2() {
+		System.out.println("hello 냥냥world");
+		
+	}
+}
+
+
+
+
+public interface Dog {
+
+	abstract void crying();
+	public void show();
+}
+
+
+
+
+public interface Cat {
+
+	abstract void crying2();
+	public void show2();
+}
+
+

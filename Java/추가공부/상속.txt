@@ -1,0 +1,228 @@
+학생, 선생, 직장인 클래스 등등은 사람 클래스를 상속
+치타, 고양이, 원숭이는 동물 클래스를 상속
+자기가 부모가 가지고 있는 특성들을 상속받아 포함하면서 동시에 자기 자신만의 특성을 가질 수 있는 것이다.
+
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+    
+	Student st= new Student("주명연", 22, 160, 63, "201646165", 3, 3.5);
+	Student st2= new Student("홍길동", 26, 180, 73, "21646165", 3, 3.5);
+    st.show();
+    st2.show();
+	}
+}
+
+
+
+
+public class Student extends Person {
+
+	private String StudentID;
+	private int grade;
+	private double GPA;
+	public String getStudentID() {
+		return StudentID;
+	}
+	public void setStudentID(String studentID) {
+		StudentID = studentID;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	public double getGPA() {
+		return GPA;
+	}
+	public void setGPA(double gPA) {
+		GPA = gPA;
+	}
+	
+	//변수안에는 name age height가 없는데 자동으로 만들어진 것을 볼 수 있음
+	//개발의 편의성을 위해서 자신이 상속받은 클래스의 변수 또한 한번에 초기화 해주는 것을 말함
+	public Student(String name, int age, int height, int weight, String studentID, int grade, double gPA) {
+		super(name, age, height, weight); //자신의 부모가 가지고 있는 생성자를 실행하겠다는 뜻
+		this.StudentID = studentID;
+		this.grade = grade;
+		this.GPA = gPA;
+	}
+	
+	public void show() {
+		System.out.println("--------------------------");
+		System.out.println("이름: "+ getName());
+		System.out.println("나이: "+ getAge());
+		System.out.println("키: "+ getHeight());
+		System.out.println("몸무게: "+ getWeight());
+		System.out.println("학번: "+ getStudentID());
+		System.out.println("학년: "+ getGrade());
+		System.out.println("학점: "+getGPA());
+	}	
+}
+
+
+
+
+public class Person {
+	
+String name;
+private int age;
+private int height;
+private int weight;
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public int getAge() {
+	return age;
+}
+public void setAge(int age) {
+	this.age = age;
+}
+public int getHeight() {
+	return height;
+}
+public void setHeight(int height) {
+	this.height = height;
+}
+public int getWeight() {
+	return weight;
+}
+public void setWeight(int weight) {
+	this.weight = weight;
+}
+
+//생성자라는건 하나의 객체를 만들때 객체가 가지는 변수의 값을 자동으로 초기화해주는 기능
+public Person(String name, int age, int height, int weight) {
+	super(); //자신의 부모 클래스의 생성자를 실행하겠다는 말
+	this.name = name;
+	this.age = age;
+	this.height = height;
+	this.weight = weight;
+}
+
+}
+
+상속을 통해서 name age height라는 변수를 포함하게 되는것임.
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+    
+	//Teacher t1= new Teacher("주명연", 22, 160, 63, "201646165", 300000, 3);
+	//Teacher t2= new Teacher("홍길동", 26, 180, 73, "21646165", 350000, 35);
+    //t1.show();
+    //t2.show();
+	
+	Teacher[] t = new Teacher[100];
+	for(int i=0; i<100; i++) {
+		t[i]= new Teacher("주명연", i+21, i+160, i+62, "201646165", 300000, 3);
+		t[i].show();
+	}
+	}
+}
+
+
+
+
+public class Teacher extends Person{
+private String teacherID;
+private int monthSalary;
+private int workedYear;
+public String getTeacherID() {
+	return teacherID;
+}
+public void setTeacherID(String teacherID) {
+	this.teacherID = teacherID;
+}
+public int getMonthSalary() {
+	return monthSalary;
+}
+public void setMonthSalary(int monthSalary) {
+	this.monthSalary = monthSalary;
+}
+public int getWorkedYear() {
+	return workedYear;
+}
+public void setWorkedYear(int workedYear) {
+	this.workedYear = workedYear;
+}
+public Teacher(String name, int age, int height, int weight, String teacherID, int monthSalary, int workedYear) {
+	super(name, age, height, weight);
+	this.teacherID = teacherID;
+	this.monthSalary = monthSalary;
+	this.workedYear = workedYear;
+}
+
+public void show() {
+	System.out.println("-------------------------");
+	System.out.println("이름:"+getName());//상속받아서 그대로 사용 가능
+	System.out.println("나이:"+getAge());
+	System.out.println("키:"+getHeight());
+	System.out.println("몸무게:"+getWeight());
+	System.out.println("아이디:"+getTeacherID());
+	System.out.println("월급:"+getMonthSalary());
+	System.out.println("연차:"+getWorkedYear());
+}
+
+}
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////
+
+
+
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+    
+Scanner sc = new Scanner(System.in);
+System.out.print("총 몇명의 학생이 존재합니까?");
+int number = sc.nextInt(); 
+Student[] st=new Student[number];
+for(int i=0; i<number; i++) {
+	System.out.println("학생의 이름을 입력하세요:"); 
+	String name=sc.next();//next()는 띄어쓰기가 포함되지 않은 문자를 받을 수 있다
+	System.out.println("학생의 나이를 입력하세요:");
+	int age=sc.nextInt();
+	System.out.println("학생의 키를 입력하세요:");
+	int height=sc.nextInt();
+	System.out.println("학생의 몸무게를 입력하세요:");
+	int weight=sc.nextInt();
+	System.out.println("학생의 번호를 입력하세요:");
+	String studentID=sc.next();
+	System.out.println("학생의 학년을 입력하세요:");
+	int grade=sc.nextInt();
+	System.out.println("학생의 학점을 입력하세요:");
+	double GPA=sc.nextDouble();
+	st[i]= new Student(name, age, height, weight, studentID, grade, GPA);
+}
+
+for(int i=0; i<number; i++) {
+	st[i].show();
+}
+
+	}
+}

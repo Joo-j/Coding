@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(void)
+{
+    char a[101]={ 0, };
+    int count=0;
+    
+    scanf("%s", &a);
+    
+	do   
+    {
+    	printf("%c", a[count]);
+        count++;
+        if(!(count%10)) puts("");   
+    }while(a[count]);
+    
+    return 0;
+}

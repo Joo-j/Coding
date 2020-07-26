@@ -1,0 +1,37 @@
+package j;
+
+import java.util.Scanner;
+
+public class Pr1 {
+    
+    public static void main(String[] args) {
+     
+   Scanner sc = new Scanner(System.in);
+    
+   int n = sc.nextInt();
+   int sum=0;
+   
+   for(int i=0; i<n; i++) {
+   String word = sc.next();
+   sum+=g(word);  
+   }      
+   
+   System.out.println(sum);
+   sc.close();
+    }    
+    
+    public static int g(String word) {
+    	boolean alphabet[] = new boolean[123];
+    	  char s;
+    	  
+    	  alphabet[word.charAt(0)]=true;   
+    	  
+    for(int q=1; q<word.length(); q++) {
+	     s = word.charAt(q);
+       if(!alphabet[s])  alphabet[s]=true;
+       else if(s==word.charAt(q-1)) continue;
+       else return 0;
+    }
+    return 1;            
+	   }  
+}

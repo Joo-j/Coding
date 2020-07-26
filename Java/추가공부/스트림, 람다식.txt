@@ -1,0 +1,207 @@
+package P9HomeworkStream;
+
+public class Student implements Comparable<Student> {
+   private String name;
+   private String phoneNumber;
+   private String place;
+   private String major;
+   private String studentNumber;
+   private double firstGrade;
+   private double secondGrade;
+   private double thirdGrade;
+   
+   public Student (String name, String phoneNumber, String place, String major, String studentNumber, double firstGrade, double secondGrade, double thirdGrade) {
+      this.name = name;
+      this.phoneNumber = phoneNumber;
+      this.place = place;
+      this.major = major;
+      this.studentNumber = studentNumber;
+      this.firstGrade = firstGrade;
+      this.secondGrade = secondGrade;
+      this.thirdGrade = thirdGrade;
+   }
+   /* 기능 : 3가지 과목의 학점을 입력받아 학점을 갱신
+       * 파라미터
+       *   firstScore : 첫 번째 과목의 학점
+       *   secondScore : 두 번째 과목의 학점
+       *   thirdScore : 세 번째 과목의 학점
+       */
+      public void set(double firstGrade, double secondGrade, double thirdGrade) {
+         this.firstGrade = firstGrade;
+         this.secondGrade = secondGrade;
+         this.thirdGrade = thirdGrade;
+      }
+      
+   public String getName() { return name;}
+   
+   public String getPhoneNumber() {return phoneNumber;}
+   
+   public String getPlace() { return place;}
+   
+   public String getMajor() { return major;}
+   
+   public String getStudentNumber() {return studentNumber;}
+   
+   public double getFirstGrade() { return firstGrade;}
+   
+   public double getSecondGrade() { return secondGrade;}
+   
+   public double getThirdGrade() { return thirdGrade;}
+   
+   public String getSortByName() {
+      return name +" "+ phoneNumber+" "+place+" "+major+" "+studentNumber;
+      }
+   
+   public int compareTo(Student student) {
+         return name.compareTo(student.name);
+      }
+}
+
+
+
+
+
+
+
+
+
+package P9HomeworkStream;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.function.ToDoubleFunction;
+
+public class StudentMethod {
+   
+   private List<Student> list; // 컬렉션을 저장
+   
+   public StudentMethod(List<Student> list) {
+      this.list=list;
+   }
+   
+   /* 기능 : 필터링 내용을 전달받아 해당하는 이름을 출력
+    * 파라미터
+    *   filtering : 필터링 조건
+    */
+   void include(Predicate<? super Student> filtering) {
+      list.stream().filter(filtering) 
+      .forEach(student->System.out.print(student.getName() + " "));
+      System.out.println();
+   }
+   
+   /* 기능 : 계산을 할 과목의 점수를 전달받아 과목의 최고점을 리턴
+    * 파라미터
+    *   score : 계산할 과목 점수
+    * 리턴 값 : 과목의 최고점
+    */
+   double max(ToDoubleFunction<? super Student> score) {
+      return list.stream().mapToDouble(score).max().getAsDouble();
+   }
+   
+   /* 기능 : 계산을 할 과목의 점수를 전달받아 과목의 최저점을 리턴
+    * 파라미터
+    *   score : 계산할 과목 점수
+    * 리턴 값 : 과목의 최저점
+    */
+   double min(ToDoubleFunction<? super Student> score) {
+      return list.stream().mapToDouble(score).min().getAsDouble();
+   }
+   
+   /* 기능 : 계산을 할 과목의 점수를 전달받아 과목의 평균 점수를 리턴
+    * 파라미터
+    *   score : 계산할 과목 점수
+    * 리턴 값 : 과목의 평균 점수
+    */
+   double average(ToDoubleFunction<? super Student> score) {
+      return list.stream().mapToDouble(score).average().getAsDouble();
+   }
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+package P9HomeworkStream;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class GradeLamdaExpression {
+   public static void main(String[] args) {
+      Scanner scan = new Scanner(System.in); // 스캐너 생성
+
+      List<Student> list = Arrays.asList( // 학생 정보를 저장하는 컬렉션을 만들고 저장
+            new Student("김재인", "01046759568", "인천", "GFS", "16481080",0,0,0 ),
+            new Student("홍길동", "01086512135", "서울", "융합디자인", "16481049",0,0,0 ),
+            new Student("조진호", "01074844159", "대전", "융합IT", "16481100",0,0,0 ),
+            new Student("김태환", "01012358465", "논산", "의약바이오", "16481007",0,0,0 )
+            
+            );
+
+      System.out.println("각 학생별 해당 과목의 학점을 입력하여 주십시오.");
+      for (int i = 0; i < list.size(); i++) { // 학점을 입력받아서 컬렉션 정보를 갱신
+         System.out.print(list.get(i).getName() + "의 객체지향 과목의 학점은 : ");
+         double firstScore = scan.nextDouble();
+         System.out.print(list.get(i).getName() + "의 프로그래밍 언어 과목의 학점은 : ");
+         double secondScore = scan.nextDouble();
+         System.out.print(list.get(i).getName() + "의 네트워크 과목의 학점은 : ");
+         double thirdScore = scan.nextDouble();
+         list.get(i).set(firstScore, secondScore, thirdScore);
+         System.out.println();
+      }
+
+      StudentMethod method = new StudentMethod(list); // 메소드 클래스 객체 생성
+
+      System.out.println("이름 순서로 정렬결과");
+      list.stream().sorted() // 이름 기준으로 오름차순 정렬
+            .forEach(student -> System.out.println(student.getSortByName()));// 학생의 정보를 하나씩 출력
+      System.out.println();
+
+      System.out.print("사람이름에 포함되어 있기를 희망하는 문자를 입력하여 주십시오: ");
+      String name = scan.next();
+      System.out.println(
+            "조건에 해당하는 사람의 수 : " + list.stream().filter(student -> student.getName().contains(name)).count()); // 입력받은
+                                                                                       // 문자가
+                                                                                       // 들어가는
+                                                                                       // 이름의
+                                                                                       // 개수
+                                                                                       // 출력
+      System.out.print("조건에 해당하는 사람의 이름 : ");
+      method.include(student -> student.getName().contains(name)); // 필터링 조건 = 입력받은 문자가 있는 이름
+
+      System.out.print("핸드폰 번호에 포함되어 있기를 희망하는 숫자를 입력하여 주십시오: ");
+      String number = scan.next();
+      System.out.print("조건에 해당하는 사람의 이름 : ");
+      method.include(student -> student.getPhoneNumber().contains(number)); // 필터링 조건 = 입력받은 번호가 있는 이름
+
+      System.out.print("원하는 거주지를 입력하여 주십시오: ");
+      String place = scan.next();
+      System.out.print("조건에 해당하는 사람의 이름 : ");
+      method.include(student -> student.getPlace().equals(place)); // 필터링 조건 = 입력받은 거주지에 사는 이름
+
+      System.out.println("객체지향 과목의 정보");
+      System.out.println("최고점 : " + method.max(Student::getFirstGrade));
+      System.out.println("최저점 : " + method.min(Student::getFirstGrade));
+      System.out.println("평균 : " + method.average(Student::getFirstGrade));
+
+      System.out.println("프로그래밍 언어 과목의 정보");
+      System.out.println("최고점 : " + method.max(Student::getSecondGrade));
+      System.out.println("최저점 : " + method.min(Student::getSecondGrade));
+      System.out.println("평균 : " + method.average(Student::getSecondGrade));
+
+      System.out.println("네트워크 과목의 정보");
+      System.out.println("최고점 : " + method.max(Student::getThirdGrade));
+      System.out.println("최저점 : " + method.min(Student::getThirdGrade));
+      System.out.println("평균 : " + method.average(Student::getThirdGrade));
+
+      scan.close();
+   }
+}

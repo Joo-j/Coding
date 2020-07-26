@@ -1,0 +1,77 @@
+Union-Find(합집합 찾기)는 대표적인 그래프 알고리즘이다
+서로소 집합(DisJoint-Set) 알고리즘이라고도 부른다
+구체적으로 여러 개의 노드가 존재할 때 두개의 노드를 선택해서 현재 이 두 노드가 서로 같은 그래프에 속하는지 판별하는 알고리즘이다.
+
+첫 번째 행은 노드 번호를 의미하고 두 번째 행은 부모 노드 번호를 의미한다.
+즉, 자신이 어떠한 부모에 포함되어 있는지를 의미한다.
+
+모두 연결디지 않고 각자 자신만의 집합을 원소로 가지고 있을 때를 다음과 같이 표현할 수 있다.
+1 2 3 4 5 6 7 8
+1 2 3 4 5 6 7 8
+
+만약 1과 2가 연결되었을때 이러한 연결성을 컴퓨터로 표현하기 위해서 Union Find를 사용하는 이유이다
+2번째 인덱스의 값에 1이 들어간다
+이렇게 부모를 합칠 때는 일반적으로 더 작은 값을 부모로하여 합친다.
+이것을 Union(합침)이라고 한다
+
+1 2 3 4 5 6 7 8
+1 1 3 4 5 6 7 8
+
+2와 3이 연결되었다면
+
+1 2 3 4 5 6 7 8
+1 1 2 4 5 6 7 8
+
+여기에서 1과 3이 연결되었는지는 어떻게 파악할 수 있을까
+1과 3은 부모가 각각 1과 2로 다르기 때문에 부모 노드만 보고는 한 번에 파악할 수 없다. 그렇기 때문에 재귀 함수가 사용된다.
+3의 부모는 2이고 2의 부모는 1이기 때문에 결과적으로 3의 최종 부모는 1이구나 하고 파악할 수있다. 이것이 Union-Find의 전부이다.
+
+Find 알고리즘은 특정한 두 개의 노드의 부모 노드를 확인하여 현재 같은 집합에 속하는지 확인하는 알고리즘
+
+
+//부모 노드를 찾는 함수 
+int getParent(int parent[], int x){ // 부모 노드 번호 배열, 노드 번호
+if(paraent[x] == x) return x;
+return parent[x] = getParent(parent, parent[x]);
+}
+
+//두 부모 노드를 합치는 함수
+int unionParent(int parent[], int a, int b){
+a = getParent(parent, a);
+b = getParent(parent, b);
+if(a < b) parent[b] = a;
+else parent[a] = b;
+}
+
+//같은 부모를 가지는지 확인 
+int findParent(int parent[], int a, int b){
+a = getParent(parent, a);
+b = getParent(parent, b);
+if(a == b) return 1;
+return 0;
+}
+
+int main(void){
+int parent[11];
+for(int i=1; i<=10; i++){
+parent[i] = i'
+}
+
+unionParent(parent, 1, 2);
+unionParent(parent, 2, 3);
+unionParent(parent, 3, 4);
+unionParent(parent, 5, 6);
+unionParent(parent, 6, 7);
+unionParent(parent, 7, 8);
+
+printf("1과 5는 연결되어 있나요? %d\n", findParent(1, 5));
+//0 반환
+
+UnionParent(parent, 1, 5);
+
+printf("1과 5는 연결되어 있나요? %d\n", findParent(1, 5));
+//1 반환
+//1, 6 이나 2, 8 등등 어떤 원소를 연결하더라도 두 그래프가 합쳐진다.
+}
+
+한 이후에 짧은 간선부터 연결하는 최소 비용신장 트리 알고리즘이다

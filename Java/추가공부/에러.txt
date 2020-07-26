@@ -1,0 +1,7 @@
+java.lang.StringIndexOutOfBoundsException
+
+문자열 처리에서 예외 사항이 생기는 오류이며, 대부분이 substring method에서 발생함
+
+예)
+String sText = "12345";
+sText.substring(0,6); //문자열 크기 보다 크게 자르려고 하였음

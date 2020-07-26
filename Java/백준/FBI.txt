@@ -1,0 +1,33 @@
+package j;
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	
+		String a;
+		int b[] = new int[5];
+		int count=0;
+		
+		for(int i=0; i<5; i++) {
+			a=sc.nextLine();
+			if(a.contains("FBI")) {
+				b[i]=i+1;
+			}
+		}
+		
+		for(int i=0; i<5; i++) {
+		if(b[i]!=0) {
+			System.out.print(b[i]+" ");
+		 count++;
+		}
+		}
+		
+		if(count==0) {
+			System.out.print("HE GOT AWAY!");
+
+		}
+	}
+}

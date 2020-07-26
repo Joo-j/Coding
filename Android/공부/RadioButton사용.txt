@@ -1,0 +1,3 @@
+
+RadioButton rb =(RadioButton) findViewById(R.id.rb);
+boolean checked = radioButton.isChecked();

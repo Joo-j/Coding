@@ -1,0 +1,3 @@
+얼마나 차지 하는지
+
+android:layout_span="2"

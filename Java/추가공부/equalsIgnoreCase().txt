@@ -1,0 +1,20 @@
+public class Main{
+	
+	public static void main(String[] args) {
+	
+		String a="MAN";
+		int b=0;
+		
+		if(a.equals("MAN"))
+		{
+			System.out.println("같습니다.");
+		}
+		
+		if(a.equalsIgnoreCase("man"))
+		{
+			System.out.println("참입니다.");
+		}
+	}
+}
+
+대소문자를 구분하지 않는 equals함수라고 생각하면됨

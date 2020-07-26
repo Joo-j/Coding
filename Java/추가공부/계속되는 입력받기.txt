@@ -1,0 +1,7 @@
+ while(sc.hasNextInt()) {
+	 int n = sc.nextInt();
+	 int k = sc.nextInt();
+		 c(n, k);
+	 }
+
+sc.hasNextLine

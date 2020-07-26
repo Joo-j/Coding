@@ -1,0 +1,111 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+   
+   Hero[] h=new Hero[5];
+   h[0]= new Worrier("전사");
+   h[1]= new Archer("궁수");
+   h[2]= new Wizard("마법사");
+		 
+   for(int i=0; i<h.length; i++) {
+	   h[i].attack();
+	   
+	   if(h[i] instanceof Worrier) {
+		   Worrier temp = (Worrier)h[i];
+		   temp.groundCutting();
+	   }
+	   else if(h[i] instanceof Archer) {
+		   Archer temp = (Archer)h[i];
+		   temp.fireArrow();
+	   }
+	   else if(h[i] instanceof Wizard) {
+		   Wizard temp = (Wizard)h[i];
+		   temp.freezing();
+	   }
+	   
+   }
+   
+	}
+
+}
+
+
+
+
+public class Hero {
+
+	String name;
+
+	public Hero(String name) {
+		this.name=name;
+	}
+	
+	public void attack() {
+		System.out.println("주먹 지르기!");
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+public class Worrier extends Hero{
+
+	public Worrier(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void groundCutting() {
+		System.out.println("대지가르기");
+	}
+	
+}
+
+
+
+
+
+
+
+public class Archer extends Hero{
+
+	public Archer(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void fireArrow() {
+		System.out.println("불화살 쏘기!");
+	}
+	
+}
+
+
+
+
+
+
+
+
+public class Wizard extends Hero{
+
+	public Wizard(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+	public void freezing() {
+		
+		System.out.println("얼리기!");
+	}
+	
+}
+
+

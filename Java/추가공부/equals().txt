@@ -1,0 +1,15 @@
+public class Main{
+	
+	public static void main(String[] args) {
+	
+		String a="Man";
+		int b=0;
+		
+		if(a.equals("MAN"))
+		{
+			System.out.println("같습니다.");
+		}
+	}
+}
+
+String 내부 함수로서 괄호안의 글자와 a의 값이 같은지 비교후 같으면 참값 아니면 거짓값 반환, 대소문자 구분!

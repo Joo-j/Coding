@@ -1,0 +1,4 @@
+public void onButton3Clicked(View v){
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-5017-7975"));
+startActivity(intent);
+}

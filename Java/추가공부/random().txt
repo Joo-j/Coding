@@ -1,0 +1,24 @@
+
+
+public class Main {
+	
+	public static void main(String[] args) {
+    
+		int array[]=new int[100];
+		int sum=0;
+		for(int i=0; i<100; i++)
+		{
+			array[i]=(int)(Math.random()*100+1);
+			sum+=array[i];
+		}
+ System.out.println("평균은"+ sum/100);
+	}
+}
+
+
+Math.random()
+
+0부터 시작해서 1보다 작은 소수점들을 임의적으로 출력한다.
+그렇기 때문에 100을 곱하게 되면 1부터~100까지의 수들을 출력할 수 있다.
+
+몇번을 실행해봐도 거의 50에 가까운 숫자가 나오는데 그 이유는 데이터가 많아서 평균값인 50에 가깝게 나오는 것이다.

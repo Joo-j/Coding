@@ -1,0 +1,6 @@
+배경색은 ARGB를 기준으로 16진수 두 자리씩 할당하며 #뒤에 코드를 붙임
+#ff0000+알파ff=#ffff0000
+#ff0000+알파88=#88ff0000
+#ff0000+알파00=#00ff0000
+
+android:background="@drawble/house"

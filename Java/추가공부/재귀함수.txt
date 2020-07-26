@@ -1,0 +1,42 @@
+팩토리얼
+public class Main {
+
+	static int factorial(int a) {
+		if(a<=1) return 1;
+		else return a*factorial(a-1);
+	}
+	
+	public static void main(String[] args) {
+      System.out.println("재귀함수로 만든 factorial의 값은"+factorial(10));
+		
+	}
+}
+
+
+재귀-> 를 통해서 결국 1이라는 값을 반환함에 따라 그 값을 시작으로 모든 숫자들이 타고 올라가 계산이 되는 것
+
+
+피보나치
+public class Main {
+
+	public static int fibonacci(int a) {
+		if(a==1||a==2) return 1;
+		else {
+				return fibonacci(a-1)+fibonacci(a-2);
+			}
+	}
+	
+	public static void main(String[] args) {
+      System.out.println(fibonacci(10));
+		
+	}
+}
+
+
+피보나치 수열의 10번째 수
+그림을 그려보고 이해
+50은 49와 48을 알아야하고 49는 48과 47이 필요하다. 48을 47과 46이필요하다. 이렇듯 재귀함수를 사용하게 되면 이러한 부작용이 나타난다. 동적프로그래밍으로 해결. 재귀함수가 때에 따라서 간결한 코드를 제공하지만 더욱더 많은 시간이 필요할 수 있다.
+
+
+즉 재귀함수는 탈출조건에 있는 return 값을 시작으로 모든 계산이 이루어짐을 알 수 있다.
+

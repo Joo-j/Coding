@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+int main()
+{
+	int n, c;
+	int fib[42]; //0이 출력되는 횟수, 인덱스 2부터 피보나치 수열과 같음, 배열의  인덱스+1은 1이 출력되는 횟수와  같음 
+	fib[0]=1; 
+	fib[1]=0;
+	for(int i=2; i<42; i++)
+	{
+		fib[i]=fib[i-1]+fib[i-2];
+	}
+	scanf("%d", &n);
+	for(int i=0; i<n; i++)
+	{
+		scanf("%d", &c);
+		printf("%d %d\n", fib[c], fib[c+1]);
+	}
+	
+	return 0;
+ } 
+/*
+표를 자세히 보면 "0"이 출력되는 횟수를 나열한 것과 "1"이 출력되는 횟수를 나열한 것이 일치하는 부분이 있는 것을 알 수 있습니다. 
+{ 1, 0, 1, 1, 2, 3, 5, 8. . . } 과 같은 배열을 따르는 것을 알 수 있고, 
+또 이 배열이 index 2부터 피보나치수열과 같은 규칙을 따른다는 것도 알 수 있습니다. */
+
+
+
+//////////////////////////////////////////
+#include <stdio.h>
+#include <stdlib.h>
+
+int count0=0;
+int count1=0;
+
+int fibonacci(int *n)
+{
+	
+	if(*n==0)
+	{
+		count0++;
+		 return 0;
+	}	
+	else if(*n==1) 
+	{
+		count1++;
+		 return 1;
+	}
+	else return fibonacci(n-1)+fibonacci(n-2);
+}
+
+int main(void)
+{
+	int n, r;
+scanf("%d", &n);
+	int *a=(int *)malloc(sizeof(int)*n);
+	int *b=(int *)malloc(sizeof(int)*n*2);
+	
+
+for(int i=0; i<n; i++)
+{
+	scanf("%d", &*(a+i));
+ }
+
+for(int i=0; i<n; i++)
+{
+   r=fibonacci(a+i);
+   *(b+(2*i))=count0;
+   *(b+((2*i)+1))=count1;
+  count0=0;
+  count1=0;
+ }
+ 
+ for(int i=0; i<n; i++)
+ {
+ printf("%d %d", *(b+(2*i)), *(b+(2*i)+1));
+ printf("\n");	
+ }
+  
+return 0;
+}

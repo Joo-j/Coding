@@ -1,0 +1,8 @@
+Intent putExtra(String name, String value)
+Intent putExtra(String name, int value)
+Intent putExtra(Stirng name, boolean value)
+
+String getStringExtra(String name)
+int getIntExtra(String name, int defaultValue)
+
+Parcelable 객체로 만들면 객체의 자체를 전달할 수 있다.

@@ -1,0 +1,95 @@
+#include <stdio.h>
+
+int main(){
+
+int n, count, s=0, sum=0;
+int score[1001];
+double average=0;
+
+scanf("%d", &n);
+for(int i=0; i<n; i++){	
+	scanf("%d", &count);
+	for(int i=0; i<count; i++){
+		scanf("%d", &score[i]);
+			sum+=score[i];
+	}
+		average=(double)sum/count;
+	
+	for(int i=0; i<count; i++){
+		if(score[i]>average){
+		s++;	
+		}
+	}
+	
+	printf("%.3f\n", (double)s*100/count);	
+}
+
+return 0;
+}
+//////////////////////////////////////
+#include <stdio.h>
+
+int main()
+{
+	int c=0, n=0;
+	scanf("%d", &c);
+	
+	for(int i=0; i<c; i++)
+	{
+		scanf("%d", &n);
+		int score[1001];
+		int sum=0;
+		double average=.0;
+		
+		for(int j=0; j<n; j++)
+		{
+			scanf("%d", &score[j]);
+			sum+=score[j];
+		}
+		
+		average=(double)sum/n;
+		int count=0;
+		for(int j=0; j<n; j++)
+		{
+			if(average<score[j])
+			{
+				count++;
+			}
+		}
+		printf("%.3f%%\n", (double)count*100/n);
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+////////////////////
+
+#include<stdio.h>
+int t, n, a[1005];
+int main(){
+    scanf("%d",&t);
+    while(t--){
+        int cnt = 0;
+        scanf("%d",&n); 
+        for(int i = 0;i<n;i++){
+            scanf("%d",&a[i]);
+            cnt+=a[i];
+        }
+        int pp = 0;
+        for(int i = 0;i<n;i++){
+            if(n*a[i]>cnt){
+                pp++;
+            }
+        }
+        double ans = (double) pp/n*100;
+        printf("%.3lf%%\n",ans);
+    }
+}

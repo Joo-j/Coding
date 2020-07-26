@@ -1,0 +1,17 @@
+들어가기
+enterActiviti.java
+
+public void onButtonClicked(View v){
+Toast.makeText(this, "들어갑니다", Toast.LENGHT_LONG).show();
+Intent intent = new Intent(this, backActivity.class);
+startActivity(intent);
+}
+
+돌아가기
+backActiviti.java
+
+public void onBackButtonClicked(View v){
+Toast.makeText(this, "돌아갑니다.", Toast.Length_LONG).show();
+
+finish();
+}

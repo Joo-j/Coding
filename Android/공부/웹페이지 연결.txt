@@ -1,0 +1,6 @@
+
+웹페이지 
+public void onButton2Clicked(View v){
+Intent intent = new Intent(intent.ACTION_VIEW, Uri.pasre("http://m.naver.com"));
+startActivity(intent);
+}

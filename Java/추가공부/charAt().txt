@@ -1,0 +1,5 @@
+함수안의 있는 번째의 문자를 하나 뽑아오는 함수
+
+String input
+input.charAt(input.length()-1);
+->마지막 단어 

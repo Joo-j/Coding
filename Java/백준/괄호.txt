@@ -1,0 +1,86 @@
+package j;
+
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.ArrayList;
+
+public class Main {
+   static Stack<Character> stack = new Stack();
+   
+   private static boolean isVPS(String text) {
+      
+      for(int i=0; i<text.length(); i++) {
+         if(text.charAt(i) == '('){
+            stack.push('(');
+         }else if(text.charAt(i) == ')') {
+            if(stack.isEmpty()) {
+               return false;
+            }else {
+               stack.pop();
+            }
+         }
+      }
+      
+      if(!stack.isEmpty()) {
+         return false;
+      }
+      return true;
+   }
+   
+   public static void main(String[] args) {
+	  
+	  Scanner sc = new Scanner(System.in);
+      int testcase = Integer.parseInt(sc.nextLine());
+      
+      for(int j=0; j<testcase; j++) {
+         stack.clear();
+         String input = sc.nextLine();
+         
+         if(isVPS(input))
+            System.out.println("YES");
+         else
+            System.out.println("NO");
+      }
+   }
+}
+
+
+
+
+
+
+
+
+package j;
+
+import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Stack;
+
+public class Main {
+
+ public static void main(String[] args){	
+
+	 Scanner sc = new Scanner(System.in);
+	 Stack stack = new Stack();
+	 
+	 int n = sc.nextInt();
+	 
+	 for(int i=0; i<n; i++) {
+		 stack.clear();
+		 String a=sc.nextLine();
+		 try {
+		 for(int j=0; j<a.length(); j++) {
+	  if(a.charAt(j)=='(') stack.push(a.charAt(j));
+	  else stack.pop();
+	 }
+		 }
+		 catch(Exception e) {
+			 System.out.println("NO");
+			 continue;
+		 }
+		if(stack.empty()) System.out.println("YES");
+		else System.out.println("NO");
+	 }
+ }
+}

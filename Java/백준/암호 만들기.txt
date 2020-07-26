@@ -1,0 +1,51 @@
+package j;
+import java.util.*;
+
+public class Main {
+    static int l;
+ 
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        l = sc.nextInt();
+        int c = sc.nextInt();
+        sc.nextLine();
+        String s = sc.nextLine();
+        StringTokenizer st = new StringTokenizer(s, " ");
+        char visitedString[] = new char[c + 1];
+        boolean visited[] = new boolean[c + 1];
+        for (int i = 1; i < c + 1; i++) {
+            visitedString[i] = st.nextToken().charAt(0);
+        }
+        Arrays.sort(visitedString);
+        find(visitedString, 0, 0, visited);
+    }
+ 
+    public static void find(char visitedString[], int start, int length, boolean[] visited) {
+        int mo = 0;
+        int ja = 0;
+        StringBuffer sb = new StringBuffer();
+        if (start == l) {
+            for (int i = 0; i < visited.length; i++) {
+                
+                if (visited[i]) {
+                    if (visitedString[i] == 'a' || visitedString[i] == 'e' || visitedString[i] == 'i'
+                            || visitedString[i] == 'o' || visitedString[i] == 'u') {
+                        mo++;
+                    } else {
+                        ja++;
+                    }
+                    sb.append(visitedString[i]);
+                }
+            }
+            if (mo >= 1 && ja >= 2) {
+                System.out.println(sb);
+            }
+        } else {
+            for (int i = length + 1; i < visited.length; i++) {
+                visited[i] = true;
+                find(visitedString, start + 1, i, visited);
+                visited[i] = false;
+            }
+        }
+    }
+}

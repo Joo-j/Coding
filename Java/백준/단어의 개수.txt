@@ -1,0 +1,17 @@
+#include <stdio.h>
+#define max 1000001 
+int main(){
+	char a[max];
+    int i=0, count=1; 
+    gets(a);
+    
+    while(a[i]!='\0'){
+        if(a[i]==' '&&a[i+1]!='\0') count++;
+        i++;
+    }
+    
+    if(a[0]==' '||a[0]=='\0') count--;
+    
+    printf("%d",count);
+    return 0;
+}

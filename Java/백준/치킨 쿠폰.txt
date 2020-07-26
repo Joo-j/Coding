@@ -1,0 +1,22 @@
+package j;
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	 
+	 while(sc.hasNextInt()) {
+	 int n = sc.nextInt();
+	 int k = sc.nextInt();
+	 int sum=n;
+	 int a=n;
+		while(a>=k) {
+			sum+=a/k;
+			a=a/k+a%k;
+		}
+		System.out.println(sum);
+	 }		
+	}
+}

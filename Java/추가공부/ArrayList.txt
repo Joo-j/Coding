@@ -1,0 +1,70 @@
+ArrayList : 배열과 같지만, 크기가 정해져 있지 않은 리스트 구조
+이전에 배운 Set, Map 모두 크기가 정해져 있지 않았으며
+ 
+ArrayList의 경우 배열을 사용할 때,
+즉, 방이 몇 개가 필요할지 모를 경우 사용하겠습니다.
+
+ArrayList<> list = new ArrayList<>();
+arraylist 생성해 보겠습니다
+
+제너릭 타입을 받아야 하네요!
+
+size()
+
+add(value)
+
+get(index)
+
+remove(index)
+
+set(index, value)
+
+add(index. value)
+
+clear()
+
+
+
+package javaex;
+
+import java.util.*;
+
+public class java15arraylistsort {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> arr_list = new ArrayList<>();
+		System.out.println("--------처음 값");
+		for(int i =1; i<=10; i++) {
+			//랜덤 값 저장
+			int a = (int) (Math.random()*100+1);
+			arr_list.add(a);
+			System.out.println(a);
+		}
+		
+		Collections.sort(arr_list);
+		
+		System.out.println("--------일반정렬");
+		
+		for(Object o : arr_list) {
+			System.out.println(o);
+		}
+		
+		Collections.reverse(arr_list);
+		
+		System.out.println("--------역순으로정렬");
+		
+		for(Object o : arr_list) {
+			System.out.println(o);
+		}
+	}
+
+}
+
+
+1. collections.sort
+    - arraylist의 값들을 오름차순으로 정렬한다.
+ 2. collections.reverse
+    - arraylist의 값들을 역순으로 정렬한다.
+package javaex;
+[출처] 15. arraylist를 정렬하자.|작성자 아이러브
+

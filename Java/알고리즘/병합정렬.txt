@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	final static int max=100000;
+    static int sort[]=new int[max];
+ 
+	public static void merge(int a[], int first, int last) {
+		int mid=(first+last)/2;
+		int m=mid+1;
+		int left=first;
+		int right=last;
+		int k=first;
+		int i;
+		
+		while(left<=mid&&m<=right) {
+			if(a[left]>a[m]) {
+				sort[k++]=a[m++];
+			}
+			else if(a[left]<a[m]) {
+				sort[k++]=a[left++];
+			}
+			else {
+				sort[k++]=a[left]++;
+				sort[k++]=a[m++];
+			}
+		}
+		
+		if(left>mid) {
+			for(i=m; i<=right; i++) sort[k++]=a[i];
+		}
+		else {
+			for(i=left; i<mid; i++) sort[k++]=a[i];
+		}
+		
+		for(i=first; i<last; i++) {
+	          a[i]=sort[i];	 
+	         }
+	}
+
+	public static void split(int a[], int first, int last) {
+		int mid=(first+last)/2;
+		if(first<last)
+		{
+		split(a, first, mid);
+		split(a, mid+1, last);
+		merge(a, first, last);
+		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+         int n=sc.nextInt();
+         int a[]= new int[max];
+         
+         for(int i=0; i<n; i++) {
+          a[i]=sc.nextInt();	 
+         }
+         
+         //병합정렬
+         
+         split(a, 0, n-1);
+         
+         for(int i=0; i<n; i++) {
+            System.out.println(a[i]);	 
+            }
+	}
+}

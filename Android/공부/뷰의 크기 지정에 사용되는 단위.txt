@@ -1,0 +1,6 @@
+뷰의 크기 지정에 사용되는 단위
+px:화면 픽셀
+dp or dip: 밀독 독립적 픽셀
+sp or sip:
+in
+mm

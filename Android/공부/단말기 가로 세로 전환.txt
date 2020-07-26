@@ -1,0 +1,2 @@
+세로가 기본이고 가로는 res폴더 안에 layout폴더와 layout-land폴더 생성
+폴더 생성 후 기존의 MainActivity.xml파일을 복사하면 뚝딱

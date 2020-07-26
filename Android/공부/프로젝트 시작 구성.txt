@@ -1,0 +1,2 @@
+app->res->value->style.xml에 Base.추가
+file->settings->general->auto import 2개 체크

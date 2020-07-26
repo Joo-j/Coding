@@ -1,0 +1,23 @@
+
+package j;
+
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+	 Scanner sc = new Scanner(System.in);		
+	 String a = sc.nextLine();
+     char b[] = a.toCharArray();
+	 int sum=0;
+	 
+	 for(int j=b.length-1; j>=0; j--) {
+		 int c = (b[b.length-1-j]);
+		 if(c=='A'||c=='B'||c=='C'||c=='D'||c=='E'||c=='F') sum += (c-55)*Math.pow(16, j);
+		 else sum += (c-48)*Math.pow(16, j);
+	 }
+		 System.out.println(sum);
+  
+	}
+}

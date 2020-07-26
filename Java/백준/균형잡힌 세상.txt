@@ -1,0 +1,82 @@
+package j;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String tmp = "";
+        while (!str.equals(".")) {
+            tmp = "";
+            for (int i = 0; i < str.length(); i++) {
+                char ch = str.charAt(i);
+                if (ch == '(' || ch == '[' || ch == ']' || ch == ')')
+                    tmp += ch;
+            }
+            while (tmp.contains("()") || tmp.contains("[]")) {
+                tmp = tmp.replaceAll("\\(\\)", "");//*, +, &, (, [는 연산자로도 쓰이는 문자기 때문에 탈출기법을 사용해야한다..
+                tmp = tmp.replaceAll("\\[\\]", "");
+            }
+            System.out.println(tmp.length()==0?"yes":"no");
+            str = sc.nextLine();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+package j;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Main {
+		
+	public static void main(String args[]) {
+				
+		Scanner sc = new Scanner(System.in);
+	Stack<Character> st = new Stack<Character>();
+	String a = "1";	
+	
+	while(a!=".") {
+		st.clear();
+		 a = sc.nextLine();
+		
+		for(int i=0; i<a.length(); i++) {
+			char b = a.charAt(i);
+			if(b=='('||b=='[') {
+				st.push(b);
+			}
+			else if(b==')') {
+				if(!st.isEmpty()) {
+					if(st.peek()=='(') {
+				st.pop();
+					}
+				}
+			}
+			else if(b==']') {
+				if(!st.isEmpty()) {
+					if(st.peek()=='[') {
+				st.pop();
+					}
+				}
+			}
+		}
+		if(st.isEmpty()) {
+			System.out.println("yes");
+		}
+		else {
+			System.out.println("no");			
+		}
+	}
+	}	
+}

@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main(void){
+char n[6];
+int c[10000]
+int p;
+int id;
+//생성자가 있는 수들의 인덱스에 1을 저장하고, 그외에 NULL값의 인덱스값을 출력하면 됨 
+
+for(int i=1; i<10000; i++){
+          pos(i, p);
+		char n[]="i";
+	for(int j=0; j<p; j++){
+	id+=n[j]
+}
+	id+=n;
+	c[id]=1;
+}
+/*
+1자리는 2개 1 1
+2자리수는 3개 12 1 2 12
+3자리수는 4개 123 1 2 3 123 
+*/
+	return 0;
+}
+
+void pos(int i, int p){
+if(0<i&&i<10){
+	p=2;
+}else if(10<i&&i<100){
+	p=3;
+}else if(100<i&&i<1000){
+	p=4;
+}else if(1000<i&&i<10000){
+	p=5;
+}
+}
+

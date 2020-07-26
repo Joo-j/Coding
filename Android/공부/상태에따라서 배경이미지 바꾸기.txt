@@ -1,0 +1,27 @@
+drawble폴더에 red와 blue라는 이름을 가진 이미지를 넣고 drawble resource file 만들기
+
+selector.xml
+
+<selector xmlns: android = " http://schemas.adroid.com/apk/res/android
+<item
+android:state_focuse="true"
+android:stat_pressed="true"
+android:drawble="@drawble/red"/>
+
+<item
+android:drawble="@drawable/blue"/>
+</selector>
+
+
+activity_main.xml
+
+<EditText
+adnroid:id="@+id/editText"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:backgroud=@android:drawble/selector"
+//android:backgroud=@android:drawble/red"
+//android:backgroud=@android:drawble/blue"
+android:ems="10"
+android:intputType="text"
+android:text="/>

@@ -1,0 +1,14 @@
+연결해서 들어가는 의미?
+
+
+웹페이지 
+public void onButton2Clicked(View v){
+Intent intent = new Intent(intent.ACTION_VIEW, Uri.pasre("http://m.naver.com"));
+startActivity(intent);
+}
+
+전화
+public void onButton3Clicked(View v){
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-5017-7975"));
+startActivity(intent);
+}

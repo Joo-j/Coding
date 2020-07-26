@@ -1,0 +1,31 @@
+String a;
+a=sc.readLine();
+char b = a.charAt(i);
+int index = a.indexOf(b);
+
+
+indexOf()는 해당 문자열중에서 찾을 문자의 첫번째 위치를 숫자로 반환합니다.
+lastIndexOf()는 뒤에서부터의 위치를 가져옵니다.
+subtring( , )은 해당 문자열에서 위치1~위치2 사이의 텍스트만 잘라서 보여줍니다.
+split()은 기준문자가 있는곳을 모두 잘라서 배열에 넣어줍니다.
+replace()는 문자를 다른 특정문자로 바꿀때 씁니다.
+str.charAt(i)
+
+
+원소 찾기
+public class Exam {
+ 
+    public static void main(String[] args) {
+        String s1 ="31";
+ 
+        String s2 ="1380";
+ 
+        String s3 ="731";
+        
+        if(s2.indexOf(s1) >=0 ) System.out.println("s1 이 s2 포함 됨.");
+        else System.out.println("s1 이 s2 포함 됨.");
+        
+        if(s3.contains(s1) ) System.out.println("s1 이 s3 포함 됨.");
+        else System.out.println("s1 이 s3 포함 됨.");
+ 
+    }
